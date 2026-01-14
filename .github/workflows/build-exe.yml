@@ -1,0 +1,64 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  workflow_dispatch:  # Manuel tetikleme
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: Build EXE with PyInstaller
+      run: |
+        pyinstaller --onefile --windowed --name="MDB-Analiz-v1.0" --icon=NONE mdb_gui.py
+        
+    - name: Upload EXE as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: MDB-Analiz-Windows
+        path: dist/*.exe
+        
+    - name: Create Release (on tag)
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: dist/*.exe
+        body: |
+          ## 🎉 MDB Analiz Programı - Windows EXE
+          
+          ### 📥 İndirme:
+          Aşağıdaki .exe dosyasını indirin ve çift tıklayın!
+          
+          ### ✅ Gereksinimler:
+          - Windows 10/11
+          - Microsoft Access Database Engine (ilk çalıştırmada program söyleyecek)
+          
+          ### 🚀 Kullanım:
+          1. .exe dosyasını indirin
+          2. Çift tıklayın
+          3. "Dosya Seç" ile .mdb dosyanızı seçin
+          4. "Analiz Et" butonuna basın!
+          
+          ### 🐛 Sorun mu yaşıyorsunuz?
+          - Windows Defender uyarısı: "More info" → "Run anyway"
+          - Issues bölümünden bildirin!
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
