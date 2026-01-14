@@ -153,6 +153,9 @@ def main():
     """Main test function"""
     print_header("🧪 MDB GUI Application - Code Validation")
     
+    # Constants
+    MAX_ALLOWED_MISSING_IMPORTS = 3  # Allow missing GUI/optional modules in headless environments
+    
     all_passed = True
     
     # Test 1: Check file existence
@@ -184,7 +187,7 @@ def main():
     # Final summary
     print_header("📊 Test Summary")
     
-    if all_passed and missing <= 3:  # Allow some missing imports (GUI related)
+    if all_passed and missing <= MAX_ALLOWED_MISSING_IMPORTS:
         print("✅ All critical tests PASSED!")
         print("\nThe application code is valid and ready to use.")
         print("\nNote: Some GUI libraries may not be available in this environment,")
@@ -194,7 +197,7 @@ def main():
     else:
         print("⚠️  Some tests FAILED or had warnings!")
         print("\nPlease review the errors above.")
-        if missing > 3:
+        if missing > MAX_ALLOWED_MISSING_IMPORTS:
             print("\nNote: Missing imports are expected in headless environments.")
         return 1
 

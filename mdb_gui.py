@@ -70,6 +70,12 @@ class Colors:
 class MDBAnalyzerGUI:
     """MDB Dosya Analiz GUI Uygulaması"""
     
+    # Window configuration constants
+    WINDOW_WIDTH = 950
+    WINDOW_HEIGHT = 750
+    MIN_WIDTH = 800
+    MIN_HEIGHT = 600
+    
     def __init__(self, root):
         self.root = root
         self.setup_window()
@@ -92,8 +98,8 @@ class MDBAnalyzerGUI:
     def setup_window(self):
         """Pencere ayarlarını yapılandır"""
         self.root.title("🗂️ MDB Dosya Analiz Programı")
-        self.root.geometry("950x750")
-        self.root.minsize(800, 600)
+        self.root.geometry(f"{self.WINDOW_WIDTH}x{self.WINDOW_HEIGHT}")
+        self.root.minsize(self.MIN_WIDTH, self.MIN_HEIGHT)
         
         # Center window
         self.root.update_idletasks()
@@ -438,7 +444,7 @@ class MDBAnalyzerGUI:
                     
                     if queries:
                         self.append_result("=" * 60 + "\n", "info")
-                        self.append_result(f"🔍 SORGULAR VE GÖRÜNÜMLlER ({len(queries)})\n", "info")
+                        self.append_result(f"🔍 SORGULAR VE GÖRÜNÜMLERİ ({len(queries)})\n", "info")
                         self.append_result("=" * 60 + "\n\n", "info")
                         for query in queries:
                             self.append_result(f"   • {query}\n")
