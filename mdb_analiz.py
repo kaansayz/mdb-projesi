@@ -91,15 +91,16 @@ class MDBAnalyzer:
         try:
             cursor.execute(f"SELECT COUNT(*) FROM [{table_name}]")
             record_count = cursor.fetchone()[0]
-        except:
+        except Exception as e:
             record_count = 0
+            print(f"  Uyarı: Kayıt sayısı alınamadı: {str(e)}")
         
         # İlk 5 satırı al
         sample_data = None
         try:
             query = f"SELECT TOP 5 * FROM [{table_name}]"
             sample_data = pd.read_sql(query, self.conn)
-        except Exception as e:
+        except Exception:
             sample_data = None
         
         return {
@@ -117,7 +118,7 @@ class MDBAnalyzer:
         try:
             for table_info in cursor.tables(tableType='VIEW'):
                 queries.append(table_info.table_name)
-        except:
+        except Exception:
             pass
         
         return sorted(queries)
@@ -139,9 +140,9 @@ class MDBAnalyzer:
                             'pk_table': fk.pktable_name,
                             'pk_column': fk.pkcolumn_name
                         })
-                except:
+                except Exception:
                     continue
-        except:
+        except Exception:
             pass
         
         return relationships
