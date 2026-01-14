@@ -2,18 +2,38 @@
 
 Modern ve kullanıcı dostu **pencereli (GUI) masaüstü uygulaması** ile Microsoft Access (.mdb) veritabanı dosyalarını analiz edin!
 
+![Build Status](https://github.com/kaansayz/mdb-projesi/actions/workflows/build-exe.yml/badge.svg)
+![GitHub release](https://img.shields.io/github/v/release/kaansayz/mdb-projesi)
+![Downloads](https://img.shields.io/github/downloads/kaansayz/mdb-projesi/total)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)
 
 ## 📋 İçindekiler
 
+- [Hızlı Kurulum - EXE İndir](#-hızlı-kurulum---exe-i̇ndir-python-gerektirmez)
 - [Özellikler](#-özellikler)
 - [Kurulum](#-kurulum)
 - [Kullanım](#-kullanım)
 - [Ekran Görüntüleri](#-ekran-görüntüleri)
 - [Gereksinimler](#-gereksinimler)
 - [Sorun Giderme](#-sorun-giderme)
+
+## 📦 Hızlı Kurulum - EXE İndir (Python Gerektirmez!)
+
+### Windows Kullanıcıları İçin En Kolay Yol:
+
+1. **[Releases](https://github.com/kaansayz/mdb-projesi/releases/latest)** sayfasına gidin
+2. En son **MDB-Analiz.exe** dosyasını indirin
+3. Çift tıklayarak çalıştırın! 🚀
+
+> ⚠️ Windows Defender uyarısı alırsanız: "More info" → "Run anyway" seçin
+
+### Gereksinimler:
+- ✅ Windows 10 veya 11
+- ✅ [Microsoft Access Database Engine](https://www.microsoft.com/en-us/download/details.aspx?id=54920) (yoksa program uyarı verecek)
+
+---
 
 ## ✨ Özellikler
 
@@ -51,6 +71,16 @@ Modern ve kullanıcı dostu **pencereli (GUI) masaüstü uygulaması** ile Micro
 - Dosya bulunamadı kontrolü
 
 ## 📦 Kurulum
+
+### 🎯 Hızlı Kullanıcılar İçin (EXE - Önerilir)
+
+Python kurmadan direkt kullanmak istiyorsanız, yukarıdaki [Hızlı Kurulum](#-hızlı-kurulum---exe-i̇ndir-python-gerektirmez) bölümüne bakın.
+
+---
+
+## 💻 Geliştiriciler İçin - Python ile Çalıştırma
+
+Eğer Python kuruluysa veya geliştirme yapmak istiyorsanız:
 
 ### Gereksinimler
 
@@ -213,11 +243,9 @@ sudo dnf install python3-tkinter
 
 ## 🏗️ Geliştirme
 
-### Executable (.exe) Oluşturma
+### 🔨 Kendiniz EXE Oluşturma
 
-Detaylı talimatlar için [build_instructions.md](build_instructions.md) dosyasına bakın.
-
-Kısa versiyon:
+Kendi bilgisayarınızda .exe dosyası oluşturmak için:
 
 ```bash
 pip install pyinstaller
@@ -229,6 +257,10 @@ veya doğrudan:
 ```bash
 pyinstaller --onefile --windowed --name="MDB-Analiz" mdb_gui.py
 ```
+
+.exe dosyası `dist/` klasöründe oluşacak.
+
+Detaylı talimatlar için [build_instructions.md](build_instructions.md) dosyasına bakın.
 
 ## 📝 Örnek MDB Dosyası
 
