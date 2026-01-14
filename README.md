@@ -61,12 +61,28 @@ python -c "import struct; print(struct.calcsize('P') * 8, 'bit')"
 
 ### Basit Kullanım
 
+**Yöntem 1: Varsayılan dosya ile**
+
 1. Komut satırını (CMD veya PowerShell) açın
 2. Proje klasörüne gidin (MDB dosyası ile aynı klasör olmalı)
 3. Programı çalıştırın:
    ```bash
    python mdb_analiz.py
    ```
+
+**Yöntem 2: Farklı bir MDB dosyası ile**
+
+Başka bir MDB dosyasını analiz etmek için dosya adını parametre olarak verin:
+
+```bash
+python mdb_analiz.py "başka_dosya.mdb"
+```
+
+veya tam yol ile:
+
+```bash
+python mdb_analiz.py "C:\Belgeler\veritabanı.mdb"
+```
 
 Program çalışmaya başlayacak ve:
 - Ekrana analiz sonuçlarını yazdıracak

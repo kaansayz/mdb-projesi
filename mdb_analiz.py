@@ -231,15 +231,22 @@ def main():
     print("=" * 50)
     print()
     
-    # MDB dosyasını bul
-    mdb_file = "04.08.2025 İTİBAREN.mdb"
+    # MDB dosyasını belirle (komut satırı argümanı veya varsayılan)
+    if len(sys.argv) > 1:
+        mdb_file = sys.argv[1]
+    else:
+        mdb_file = "04.08.2025 İTİBAREN.mdb"
     
     # Dosya mevcut mu kontrol et
     if not os.path.exists(mdb_file):
         print(f"❌ HATA: '{mdb_file}' dosyası bulunamadı!")
         print(f"📍 Aranan konum: {os.path.abspath(mdb_file)}")
         print()
-        print("Lütfen programı MDB dosyası ile aynı klasörde çalıştırın.")
+        print("Kullanım:")
+        print(f"  python mdb_analiz.py [dosya_adı.mdb]")
+        print()
+        print("Örnek:")
+        print(f"  python mdb_analiz.py \"04.08.2025 İTİBAREN.mdb\"")
         sys.exit(1)
     
     print(f"✅ MDB dosyası bulundu: {mdb_file}")
