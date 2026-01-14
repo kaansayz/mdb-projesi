@@ -24,7 +24,7 @@ Modern ve kullanıcı dostu **pencereli (GUI) masaüstü uygulaması** ile Micro
 ### Windows Kullanıcıları İçin En Kolay Yol:
 
 1. **[Releases](https://github.com/kaansayz/mdb-projesi/releases/latest)** sayfasına gidin
-2. En son **MDB-Analiz-v1.0.exe** dosyasını indirin
+2. En son **MDB-Analiz.exe** dosyasını indirin
 3. Çift tıklayarak çalıştırın! 🚀
 
 > ⚠️ Windows Defender uyarısı alırsanız: "More info" → "Run anyway" seçin

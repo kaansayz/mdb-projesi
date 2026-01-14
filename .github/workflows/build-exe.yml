@@ -13,10 +13,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
         
@@ -28,10 +28,10 @@ jobs:
         
     - name: Build EXE with PyInstaller
       run: |
-        pyinstaller --onefile --windowed --name="MDB-Analiz-v1.0" --icon=NONE mdb_gui.py
+        pyinstaller --onefile --windowed --name="MDB-Analiz" --icon=NONE mdb_gui.py
         
     - name: Upload EXE as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MDB-Analiz-Windows
         path: dist/*.exe
