@@ -59,3 +59,8 @@ Thumbs.db
 mdb_analiz_*.txt
 mdb_analiz_*.csv
 mdb_analiz_*.xlsx
+rapor_*.xlsx
+
+# Database
+data/*.db
+data/*.db-journal
