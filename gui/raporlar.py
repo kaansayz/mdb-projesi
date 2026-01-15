@@ -13,6 +13,9 @@ from database import Database
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
+# Constants
+MAX_EXCEL_COLUMN_WIDTH = 50  # Maximum Excel column width
+
 
 class Raporlar:
     """Raporlar modülü"""
@@ -337,7 +340,7 @@ class Raporlar:
                             max_length = len(str(cell.value))
                     except:
                         pass
-                adjusted_width = min(max_length + 2, 50)
+                adjusted_width = min(max_length + 2, MAX_EXCEL_COLUMN_WIDTH)
                 ws.column_dimensions[column_letter].width = adjusted_width
             
             # Dosyayı kaydet

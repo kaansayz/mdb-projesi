@@ -6,7 +6,7 @@ Veri doğrulama işlemleri
 
 import re
 from datetime import datetime
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 
 
 def validate_empty(value: str, field_name: str) -> Tuple[bool, Optional[str]]:
@@ -25,7 +25,7 @@ def validate_empty(value: str, field_name: str) -> Tuple[bool, Optional[str]]:
     return True, None
 
 
-def validate_number(value: str, field_name: str, 
+def validate_number(value: Union[str, int, float], field_name: str, 
                     min_value: float = None, max_value: float = None) -> Tuple[bool, Optional[str]]:
     """
     Sayısal değer kontrolü
@@ -53,7 +53,7 @@ def validate_number(value: str, field_name: str,
         return False, f"{field_name} geçerli bir sayı olmalıdır!"
 
 
-def validate_integer(value: str, field_name: str,
+def validate_integer(value: Union[str, int], field_name: str,
                      min_value: int = None, max_value: int = None) -> Tuple[bool, Optional[str]]:
     """
     Tam sayı kontrolü

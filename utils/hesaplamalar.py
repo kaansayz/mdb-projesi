@@ -6,6 +6,10 @@ Maliyet, kalori ve diğer hesaplamalar
 
 from typing import Tuple
 
+# Stok uyarı eşikleri
+STOK_KRITIK_ESIK = 10  # Kırmızı uyarı
+STOK_UYARI_ESIK = 50   # Sarı uyarı
+
 
 def hesapla_tabela(mevcut_kisi: int, verilen_miktar: float, 
                    urun_fiyat: float, urun_kalori: int) -> Tuple[float, float, float, float]:
@@ -77,7 +81,7 @@ def hesapla_aylik_ozet(aylik_kayitlar: list) -> dict:
     """
     toplam_tutar = sum(k.get('tutar', 0) for k in aylik_kayitlar)
     toplam_verilen = sum(k.get('verilen', 0) for k in aylik_kayitlar)
-    gun_sayisi = len(set(k.get('tarih') for k in aylik_kayitlar))
+    gun_sayisi = len(set(k.get('tarih') for k in aylik_kayitlar if k.get('tarih') is not None))
     
     return {
         'toplam_tutar': toplam_tutar,
@@ -97,9 +101,9 @@ def stok_uyari_durumu(stok_miktari: float) -> str:
     Returns:
         str: 'critical', 'warning', 'normal'
     """
-    if stok_miktari <= 10:
+    if stok_miktari <= STOK_KRITIK_ESIK:
         return 'critical'  # Kırmızı
-    elif stok_miktari <= 50:
+    elif stok_miktari <= STOK_UYARI_ESIK:
         return 'warning'   # Sarı
     else:
         return 'normal'    # Yeşil

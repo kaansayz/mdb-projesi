@@ -46,7 +46,7 @@ class MDBImporter:
                 if driver in pyodbc.drivers():
                     conn_str = f'DRIVER={{{driver}}};DBQ={self.mdb_path};'
                     break
-            except:
+            except Exception:
                 continue
         
         if not conn_str:
