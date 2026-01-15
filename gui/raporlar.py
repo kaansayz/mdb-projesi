@@ -7,6 +7,7 @@ Rapor oluşturma ve Excel'e aktarım
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from datetime import date, timedelta
+import traceback
 from tkcalendar import DateEntry
 from database import Database
 import openpyxl
@@ -250,7 +251,6 @@ class Raporlar:
                     
         except Exception as e:
             messagebox.showerror("Hata", f"Rapor oluşturulamadı:\n{e}")
-            import traceback
             traceback.print_exc()
     
     def display_report(self, data, columns, field_names):

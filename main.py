@@ -8,6 +8,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import os
 import sys
+import traceback
 from pathlib import Path
 
 # Uygulama renkler
@@ -284,7 +285,6 @@ class CezaeviGidaApp:
                 "Hata",
                 f"Modül yüklenirken hata oluştu:\n{e}"
             )
-            import traceback
             traceback.print_exc()
     
     def run(self):
@@ -299,7 +299,6 @@ def main():
         app.run()
     except Exception as e:
         print(f"❌ Hata: {e}")
-        import traceback
         traceback.print_exc()
 
 
