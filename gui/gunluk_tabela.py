@@ -9,7 +9,7 @@ from tkinter import ttk, messagebox
 from datetime import date
 from tkcalendar import DateEntry
 from database import Database
-from utils.hesaplamalar import hesapla_tabela, format_para
+from utils.hesaplamalar import hesapla_tabela
 from utils.validasyon import validate_integer, validate_number, parse_float, parse_int
 
 

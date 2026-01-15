@@ -6,7 +6,7 @@ Rapor oluşturma ve Excel'e aktarım
 
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
-from datetime import date, timedelta
+from datetime import date
 import traceback
 from tkcalendar import DateEntry
 from database import Database

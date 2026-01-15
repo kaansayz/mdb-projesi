@@ -6,7 +6,7 @@ Dashboard ve özet bilgiler
 
 import tkinter as tk
 from tkinter import ttk, messagebox
-from datetime import datetime, date
+from datetime import date
 from database import Database
 from utils.hesaplamalar import format_para, format_kalori
 

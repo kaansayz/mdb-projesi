@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Cezaevi Gıda Takip Sistemi GUI - Kullanım Kılavuzu
-"""
-
-# GUI Kullanım Kılavuzu
+# Cezaevi Gıda Takip Sistemi GUI - Kullanım Kılavuzu
 
 ## 🚀 Başlangıç
 
